@@ -2,6 +2,8 @@ Feature: Cliq Home Page
   In order to test Cliq Group conversation dialog
   when user is already logged in
 
+  #I wanted to put common steps in a "Background: " but I donno if scenario can start with When
+
   Scenario: Group Conversation dialog pops up
     Given user is on cliq home page
     And "Quick action" button is visible
