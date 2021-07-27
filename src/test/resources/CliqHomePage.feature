@@ -4,8 +4,7 @@ Feature: Cliq Home Page
 
 Background:
   Given user is on cliq home page
-  And "Quick action" button is visible
-  When user clicks on "Quick action" button
+  And user clicks on "Quick action" button
   And  user clicks on "Start a group conversation" option
 
   Scenario: Test Autofocus after Group conversation dialog opens
