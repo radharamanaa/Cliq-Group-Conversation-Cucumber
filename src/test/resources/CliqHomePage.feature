@@ -1,6 +1,5 @@
 Feature: Cliq Home Page
   In order to test Cliq Group conversation dialog
-  when user is already logged in
 
 Background:
   Given user is on cliq home page
@@ -23,6 +22,11 @@ Background:
     And user clicks on the contact in the filtered list
     Then the user is added to the "Selected" list
 
+  Scenario: User is able add a contact by clicking
+    Given Group conversation dialog is open
+    When user clicks on any listed contact
+    Then contact gets added to selected list
+
   Scenario: Once added user cannot be added again
     Given Group conversation dialog is open
     When user adds any contact to the "Selected" list
@@ -39,21 +43,22 @@ Background:
     And clicks on the contact in the filtered contacts list
     Then contact search field is emptied
 
-#not sure if below scenario is out of scope
-  Scenario: User is not able to create group chat with single person
-    Given Group conversation dialog is open
-    Then user searches for "deepthi.balla"
-    And clicks on the contact in the filtered contacts list
-    And the contact is added
-    And user clicks on start
-    Then the group converation is not created
-
   Scenario:  Chat title field appears when 2 contacts are added
     Given Group conversation dialog is open
     When user types "deepthi.balla" and presses return key
     And user types "madhusudhan.ganta" and presses return key
     Then a "Chat Title" field appears
     And Chat title has first names of selected contacts
+
+  Scenario: No results appear when user enters gibberish text
+    Given Group conversation dialog is open
+    When user enters "aldfjnaib546as"
+    Then no results appear in the search list
+
+  Scenario: No results appear when user enters gmail based email
+    Given Group conversation dialog is open
+    When user enters "abhijeet@gmail.com"
+    Then no results appear in the search list
 
 
 
