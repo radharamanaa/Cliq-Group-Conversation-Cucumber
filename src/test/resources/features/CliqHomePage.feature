@@ -9,7 +9,7 @@ Background:
   Scenario: User is able to add a contact when he types a valid email
     Given Group conversation dialog is open
     When user types a valid email and presses return
-    Then that user is added to the "Selected" list
+    Then that contact is added to the "Selected" list
 
   Scenario: User is able to add a contact by typing a valid name
     Given Group conversation dialog is open
